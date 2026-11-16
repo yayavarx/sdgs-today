@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오늘의 지구 숙제 🌏</title>
+<style>
+:root{--g:#2e9e6b;--gd:#1f7a4f;--gl:#e8f7ef;--b:#2f80ed;--bl:#e8f1fe;--t:#22303a;--m:#6b7b86;--line:#dfe8ec;--warn:#e8590c}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;color:var(--t);background:linear-gradient(180deg,#f2fbf6 0,#fff 260px,#fff 100%);min-height:100vh;line-height:1.6}
+.wrap{max-width:520px;margin:0 auto;padding:24px 18px 28px;min-height:100vh;display:flex;flex-direction:column}
+main{flex:1}
+.screen{display:none;animation:fade .35s ease}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hero{text-align:center;padding:56px 6px 20px}
+.hero .em{font-size:76px;line-height:1;margin-bottom:12px}
+h1{font-size:32px;margin:8px 0 12px;letter-spacing:-.5px}
+h1 span{color:var(--g)}
+.hero p{color:var(--m);font-size:17px;margin:0 0 32px}
+h2{font-size:22px;margin:8px 0 4px}
+.sub{color:var(--m);margin:0 0 18px;font-size:15px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;margin-bottom:14px;box-shadow:0 4px 14px rgba(46,158,107,.07);transition:border-color .2s,box-shadow .2s}
+.card.err{border-color:var(--warn);box-shadow:0 0 0 3px rgba(232,89,12,.15);animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.card h3{margin:0 0 12px;font-size:17px}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.opts.three{grid-template-columns:repeat(3,1fr)}
+.opt{font:inherit;font-size:16px;font-weight:600;padding:15px 8px;border-radius:16px;border:2px solid var(--line);background:#fff;color:var(--t);cursor:pointer;min-height:56px;transition:transform .12s,background .15s,border-color .15s}
+.opt:hover{border-color:var(--g);background:var(--gl)}
+.opt:active{transform:scale(.95)}
+.opt.sel{background:var(--g);border-color:var(--g);color:#fff;box-shadow:0 4px 12px rgba(46,158,107,.35)}
+.opt:focus-visible,.btn:focus-visible,input:focus-visible{outline:3px solid var(--b);outline-offset:2px}
+.big{text-align:center;font-size:54px;font-weight:800;color:var(--b);line-height:1.1}
+.big small{font-size:20px;font-weight:700;margin-left:4px}
+input[type=range]{width:100%;height:36px;margin:10px 0 0;accent-color:var(--b)}
+.scale{display:flex;justify-content:space-between;color:var(--m);font-size:13px}
+.btn{font:inherit;font-size:19px;font-weight:700;width:100%;padding:17px;border:0;border-radius:18px;background:linear-gradient(135deg,var(--g),#26a69a);color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(46,158,107,.35);transition:transform .12s,filter .15s}
+.btn:hover{filter:brightness(1.06)}
+.btn:active{transform:scale(.97)}
+.btn.line{background:#fff;color:var(--b);border:2px solid var(--b);box-shadow:none;margin-top:6px}
+.warn{display:none;background:#fff4ec;color:var(--warn);border:1px solid #ffd2b8;border-radius:14px;padding:12px 14px;margin:0 0 12px;font-weight:600;font-size:15px}
+.warn.on{display:block}
+.prog{display:flex;gap:6px;margin-bottom:14px}
+.prog i{flex:1;height:6px;border-radius:6px;background:var(--line);transition:background .2s}
+.prog i.on{background:var(--g)}
+.intro{background:var(--gl);border-radius:20px;padding:16px 18px;margin-bottom:16px;font-size:16px;font-weight:600}
+.act{position:relative}
+.badge{display:inline-block;background:var(--bl);color:var(--b);font-weight:700;font-size:13px;border-radius:99px;padding:3px 11px;margin-bottom:8px}
+.act h3{font-size:18px;margin:0 0 8px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.meta span{background:var(--gl);color:var(--gd);font-size:13px;font-weight:700;border-radius:10px;padding:3px 10px}
+.act p{margin:0;color:#41525d;font-size:15px}
+.no{position:absolute;top:14px;right:16px;font-size:26px;font-weight:800;color:#cfe3d8}
+.note{background:#fffbe8;border:1px solid #f3e3a1;border-radius:20px;padding:16px 18px;margin:6px 0 16px}
+.note h3{margin:0 0 8px;font-size:17px}
+.note ul{margin:0;padding-left:20px}
+.note li{margin-bottom:4px;font-size:15px}
+footer{text-align:center;color:#9aa8b1;font-size:12px;padding-top:24px}
+@media(min-width:700px){.wrap{padding-top:48px}.card,.intro{padding:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<main>
+<section id="s-start" class="screen on">
+  <div class="hero">
+    <div class="em">🌏</div>
+    <h1>오늘의 지구 <span>숙제</span> 🌏</h1>
+    <p>관심사와 시간, 예산만 골라 보세요.<br>오늘 내 상황에서 바로 할 수 있는<br>SDGs 실천 행동 3가지를 추천해 드려요.</p>
+    <button class="btn" id="startBtn">시작하기 🌱</button>
+  </div>
+</section>
+
+<section id="s-form" class="screen">
+  <h2>나에게 맞는 SDGs 실천 방법</h2>
+  <p class="sub">5가지만 골라 주세요. 금방 끝나요!</p>
+  <div class="prog" id="prog"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="warn" id="warn" role="alert"></div>
+
+  <div class="card" data-key="cat"><h3>1. 어떤 분야에 관심 있어요?</h3>
+    <div class="opts" id="o-cat"></div></div>
+
+  <div class="card" data-key="time"><h3>2. 오늘 쓸 수 있는 시간은요?</h3>
+    <div class="big"><span id="timeVal">30</span><small>분</small></div>
+    <input type="range" id="time" min="5" max="120" step="5" value="30" aria-label="쓸 수 있는 시간(분)">
+    <div class="scale"><span>5분</span><span>120분</span></div></div>
+
+  <div class="card" data-key="budget"><h3>3. 예산은 얼마까지 괜찮아요?</h3>
+    <div class="opts three" id="o-budget"></div></div>
+
+  <div class="card" data-key="place"><h3>4. 지금 어디에 있어요?</h3>
+    <div class="opts three" id="o-place"></div></div>
+
+  <div class="card" data-key="who"><h3>5. 누구와 함께해요?</h3>
+    <div class="opts three" id="o-who"></div></div>
+
+  <button class="btn" id="goBtn">추천받기 ✨</button>
+</section>
+
+<section id="s-result" class="screen">
+  <h2>오늘의 숙제가 도착했어요 🎉</h2>
+  <div class="intro" id="intro"></div>
+  <div id="acts"></div>
+  <div class="note"><h3>⚠️ 꼭 고려할 점</h3><ul id="notes"></ul></div>
+  <button class="btn" id="retryBtn">다시 골라보기 🔄</button>
+</section>
+</main>
+<footer>Web:메이커스 1기 · 김경준</footer>
+</div>
+
+<script>
+(function(){
+var SDG={1:"빈곤 퇴치",2:"기아 종식",3:"건강과 웰빙",4:"양질의 교육",5:"성평등",6:"깨끗한 물과 위생",7:"모두를 위한 깨끗한 에너지",8:"양질의 일자리와 경제 성장",9:"산업, 혁신, 사회기반시설",10:"불평등 감소",11:"지속가능한 도시와 공동체",12:"책임감 있는 소비와 생산",13:"기후변화 대응",14:"해양 생태계 보전",15:"육상 생태계 보전",16:"평화, 정의, 강력한 제도",17:"목표를 위한 파트너십"};
+var CATS=[["env","🌿 환경·기후"],["pov","🤝 빈곤·불평등"],["edu","📚 교육"],["health","💪 건강·위생"],["con","♻️ 소비·자원순환"],["com","🏘️ 이웃·참여"]];
+var BUDGETS=[[0,"0원"],[10000,"1만원 이하"],[30000,"3만원 이하"]];
+var PLACES=[["h","🏠 집"],["w","🏫 학교·회사"],["o","🚶 동네 밖"]];
+var WHO=[["s","🙋 혼자"],["f","👫 친구"],["a","👨‍👩‍👧 가족"]];
+var PL={h:"집",w:"학교·회사",o:"동네 밖"};
+var WL={s:"혼자",f:"친구와",a:"가족과"};
+// [분야, SDG, 행동, 소요분, 비용(원), 장소(h집/w학교·회사/o동네밖), 사람(s/f/a), 추천 이유, 꼭 고려할 점]
+var DB=[
+["env",13,"안 쓰는 플러그 모두 뽑고 대기전력 줄이기",5,0,"hw","sfa","전기를 아끼는 가장 쉬운 시작이라 부담이 없어요.","멀티탭 스위치로 끄면 더 편해요. 냉장고처럼 계속 켜 둬야 하는 기기는 건드리지 마세요."],
+["env",7,"조명·화면 밝기 낮추고 안 쓰는 방 불 끄기",5,0,"hw","sfa","에너지 절약을 습관으로 만드는 첫걸음이에요.","어두워서 눈이 피로하지 않게 책상 조명은 적당히 밝게 유지해 주세요."],
+["env",13,"가까운 거리는 걷거나 대중교통으로 이동하기",30,0,"o","sfa","이동하면서 탄소 배출도 줄이고 운동도 돼요.","날씨와 안전을 먼저 챙기고, 밤길은 밝은 길로 다니세요."],
+["env",14,"집 근처 하천·공원에서 쓰레기 줍기(플로깅)",45,0,"o","sfa","작은 쓰레기가 바다로 흘러가는 길을 미리 막아 줘요.","장갑과 봉투를 챙기고, 날카로운 물건은 손으로 줍지 마세요."],
+["env",15,"베란다·책상에 작은 화분 하나 키우기",20,10000,"hw","sfa","식물을 돌보면 자연과 가까워지고 마음도 편해져요.","물 주는 주기를 확인하고 반려동물에게 해로운 식물인지 살펴보세요."],
+["env",13,"샤워 시간 줄이고 양치할 때 물 잠그기",5,0,"h","s","물과 에너지를 같이 아끼는 습관이에요.","갑자기 너무 줄이면 불편하니 하루 1분씩 줄여 보세요."],
+["env",15,"동네 숲길·공원 걸으며 자연 관찰 기록하기",60,0,"o","sfa","자연을 알아야 지키고 싶은 마음도 생겨요.","식물이나 곤충은 만지거나 뽑지 말고 눈과 사진으로만 담아요."],
+["env",13,"이번 주 하루 채식 식단 정해 보기",20,0,"hwo","sfa","식단 선택만으로도 기후에 도움이 되는 행동이 돼요.","영양이 부족하지 않게 두부·콩·달걀 등을 챙겨 주세요."],
+["pov",1,"안 입는 옷·물건 정리해 기부 상자 만들기",40,0,"h","sfa","필요한 이웃에게 닿으면 물건이 두 번째 쓸모를 찾아요.","깨끗하고 쓸 수 있는 것만 담고, 받는 곳의 기부 기준을 먼저 확인하세요."],
+["pov",2,"푸드뱅크·급식 지원 단체 후원 알아보기",15,10000,"hwo","sfa","적은 금액도 모이면 끼니를 잇는 힘이 돼요.","공식 등록 단체인지 꼭 확인하고, 무리한 금액은 정하지 마세요."],
+["pov",10,"장애인·노약자 접근성 불편 지점 살펴보고 제보하기",30,0,"o","sfa","눈에 띄지 않던 불편을 알리면 모두의 길이 편해져요.","사진을 찍을 땐 타인의 얼굴이 나오지 않게 조심해 주세요."],
+["pov",1,"생활비 아끼는 법 정리해 주변에 나누기",20,0,"hw","sf","정보 나눔도 빈곤을 줄이는 방법이에요.","상대의 형편을 판단하는 말투는 피하고 도움이 될 팁만 건네요."],
+["pov",2,"남는 음식 재료 모아 이웃과 나누기",30,10000,"ho","fa","음식 낭비도 줄고 이웃과 정도 쌓여요.","유통기한과 알레르기 정보를 꼭 확인하고 나눠 주세요."],
+["pov",10,"소외 이웃에게 응원 편지·카드 쓰기",20,0,"hw","sfa","따뜻한 한마디가 외로움을 덜어 줘요.","받는 분이 부담스럽지 않게 쓰고, 기관을 통해 전달하는 게 안전해요."],
+["pov",1,"사회적기업·착한 가게에서 필요한 물건 사기",40,30000,"o","sfa","소비로 일자리와 취약계층을 응원할 수 있어요.","필요하지 않은 물건까지 사지 않도록 목록을 먼저 정하세요."],
+["pov",5,"성평등 관련 책·영상 보고 생각 나누기",60,0,"hw","sfa","서로 다른 입장을 이해하는 연습이 돼요.","정답을 가르치기보다 서로의 경험을 존중하며 이야기해요."],
+["edu",4,"무료 온라인 강의로 새로운 주제 하나 배우기",45,0,"hw","s","배움이 쌓이면 실천의 선택지도 넓어져요.","한 번에 욕심내지 말고 오늘 분량만 정해서 시작하세요."],
+["edu",4,"SDGs 17개 목표 중 궁금한 것 하나 찾아보기",15,0,"hwo","sfa","내 관심사와 이어지는 목표를 찾으면 실천이 쉬워져요.","출처가 공식 기관인지 확인하며 읽어 주세요."],
+["edu",4,"쓰지 않는 책·문제집 기증하거나 나눔하기",30,0,"hw","sfa","책이 필요한 누군가의 배움 기회가 돼요.","낙서나 개인정보가 적힌 부분을 미리 지워 주세요."],
+["edu",4,"동생·후배에게 아는 것 20분 가르쳐 주기",30,0,"hwo","fa","가르치면서 나도 더 깊이 배워요.","상대의 속도에 맞추고 칭찬을 먼저 해 주세요."],
+["edu",4,"지역 도서관에서 환경·사회 주제 책 빌려 읽기",60,0,"o","sfa","관심 주제를 깊이 알 수 있고 비용도 들지 않아요.","반납 기한을 달력에 적어 두면 좋아요."],
+["edu",16,"가짜 뉴스 구분하는 법 찾아보고 가족·친구와 공유하기",25,0,"hw","sfa","올바른 정보가 건강한 사회의 바탕이 돼요.","특정인을 비난하기보다 확인하는 방법 위주로 알려 주세요."],
+["edu",17,"스터디·실천 모임 함께할 사람 모집하기",30,0,"hw","sf","함께하면 오래 이어갈 힘이 생겨요.","모임 목표와 횟수를 가볍게 정해야 부담 없이 지속돼요."],
+["edu",5,"성평등 관련 일상 속 표현 점검해 보기",15,0,"hw","sfa","말 한마디를 돌아보는 것도 좋은 실천이에요.","누군가를 지적하기보다 내 말부터 살피는 걸로 시작하세요."],
+["health",3,"집에서 15분 스트레칭·홈트하기",15,0,"hw","sfa","몸이 건강해야 다른 실천도 오래 할 수 있어요.","통증이 느껴지면 바로 멈추고 무리하지 마세요."],
+["health",3,"가까운 공원에서 가볍게 산책하기",30,0,"o","sfa","마음과 몸 모두 환기돼요.","미세먼지나 날씨를 확인하고 편한 신발을 신어요."],
+["health",6,"올바른 손 씻기 6단계 다시 점검하기",5,0,"hwo","sfa","기본 위생이 모두의 건강을 지켜 줘요.","비누로 30초 정도 꼼꼼히 씻는 걸 기억해요."],
+["health",6,"텀블러에 깨끗한 물 담아 하루 물 마시기",5,0,"hwo","sfa","일회용 컵도 줄이고 수분도 챙길 수 있어요.","텀블러는 자주 세척해서 위생을 지켜 주세요."],
+["health",3,"마음 돌봄 시간: 10분 명상·일기 쓰기",10,0,"hw","s","정신 건강도 웰빙의 중요한 부분이에요.","힘든 마음이 계속되면 혼자 견디지 말고 전문 상담을 꼭 받아 보세요."],
+["health",3,"가족·친구와 건강한 한 끼 함께 만들어 먹기",60,10000,"h","fa","함께 먹으면 건강도 관계도 좋아져요.","알레르기와 식이 제한을 미리 물어봐 주세요."],
+["health",6,"우리 집 수도꼭지 물 새는 곳 점검하기",15,0,"h","sfa","새는 물을 막으면 귀한 물 자원을 지킬 수 있어요.","직접 수리가 어렵다면 관리실이나 전문가에게 맡기세요."],
+["health",3,"대중교통에서 자리 양보·배려 행동하기",10,0,"o","s","작은 배려가 모두의 하루를 건강하게 만들어요.","상대가 불편해할 수 있으니 정중하게 먼저 물어보세요."],
+["con",12,"재사용 장바구니·에코백 챙겨 나가기",5,0,"hwo","sfa","일회용 비닐 사용을 줄이는 가장 간단한 습관이에요.","가방 안에 접어 두면 잊지 않고 챙겨요."],
+["con",12,"냉장고 속 식재료 점검하고 음식물 쓰레기 줄이기",20,0,"h","sfa","버려지는 음식을 줄이면 돈도 아껴요.","상한 음식은 아까워도 먹지 말고 버려 주세요."],
+["con",12,"분리배출 제대로 하는 법 확인하고 실천하기",15,0,"hw","sfa","잘 분리해야 재활용이 정말 이뤄져요.","지역마다 규칙이 다르니 우리 동네 기준을 확인하세요."],
+["con",12,"중고 거래로 필요한 물건 구해 보기",30,10000,"hw","s","새로 만들지 않아도 물건이 다시 쓰여요.","안전한 장소에서 거래하고 개인정보는 꼭 지켜 주세요."],
+["con",12,"옷장 속 옷 리폼·수선해서 다시 입기",60,10000,"h","sfa","새 옷 구매를 줄이는 멋진 선택이에요.","바늘 등 도구 사용 시 다치지 않게 조심하세요."],
+["con",12,"일회용 컵 대신 개인 컵 쓰는 하루 보내기",5,0,"wo","sf","쓰레기를 만들지 않는 게 가장 좋은 재활용이에요.","매장 정책을 확인하고 컵을 깨끗이 씻어 쓰세요."],
+["con",12,"페트병·캔 깨끗이 씻어 모아 배출하기",15,0,"h","sfa","잘 씻은 재활용품이 제값을 해요.","병뚜껑·라벨은 분리해서 배출해요."],
+["con",12,"새로 사기 전 '정말 필요한가' 3일 고민하기",5,0,"hwo","s","충동구매를 줄이면 자원도 아껴요.","꼭 필요한 물건까지 참을 필요는 없어요."],
+["con",14,"샴푸바·고체 비누 등 플라스틱 줄이는 제품 써 보기",20,10000,"ho","sfa","플라스틱 사용을 줄이면 바다 환경에도 도움이 돼요.","피부에 맞는지 먼저 확인하고 다 쓰기 전엔 새로 사지 마세요."],
+["con",7,"LED 전구나 절전 제품으로 교체 알아보기",30,30000,"hwo","fa","장기적으로 에너지를 줄이는 선택이에요.","이미 쓸 수 있는 제품을 버리고 바꾸진 말고, 수명이 다했을 때 바꿔요."],
+["con",12,"자주 쓰는 일회용품 줄이기 챌린지 계획 세우기",15,0,"hw","sf","목표가 있으면 습관이 오래가요.","한 번에 다 바꾸기보다 하나씩 줄여요."],
+["com",11,"우리 동네 불편한 점 찾아 민원·제안 남기기",30,0,"o","sfa","동네가 살기 좋아지면 모두에게 도움이 돼요.","개인을 비난하지 말고 사실 위주로 정중하게 써 주세요."],
+["com",11,"동네 이웃에게 먼저 인사 건네기",5,0,"ho","s","서로 인사하는 동네가 안전하고 따뜻해요.","상대가 불편해하면 가볍게 마무리해요."],
+["com",17,"봉사활동 단체·플랫폼에서 참여할 일 찾아보기",20,0,"hw","sfa","혼자 하기 어려운 일도 함께하면 가능해요.","시간과 일정을 현실적으로 정하고 약속은 꼭 지켜요."],
+["com",16,"주변 도움이 필요한 사람에게 안전하게 신고·연락하는 방법 알아보기",15,0,"hwo","sfa","위급할 때 도움을 연결할 수 있는 힘이 돼요.","위험한 상황에서는 직접 나서지 말고 112·119에 먼저 연락해요."],
+["com",11,"골목·공원 쓰레기 모아 지정 장소에 버리기",30,0,"o","sfa","깨끗한 동네는 모두의 쉼터가 돼요.","장갑을 끼고 위생과 안전을 지켜요."],
+["com",17,"친구·가족과 '이번 달 실천 약속' 한 가지 정하기",15,0,"hw","fa","함께 정하면 서로 응원하며 지킬 수 있어요.","약속은 작고 구체적으로 정하면 지키기 쉬워요."],
+["com",16,"온라인에서 존중하는 댓글 쓰기 실천하기",10,0,"hwo","s","건강한 대화가 평화로운 공동체를 만들어요.","감정이 격할 땐 잠시 멈췄다가 써요."],
+["com",8,"지역 소상공인 가게 이용하고 응원 후기 남기기",30,10000,"o","sfa","동네 일자리와 경제를 응원할 수 있어요.","예산 안에서만 쓰고 솔직한 후기를 남겨 주세요."],
+["com",9,"오늘 불편했던 일, 더 나은 아이디어로 메모해 보기",15,0,"hw","s","작은 아이디어가 혁신의 시작이에요.","메모를 모아 두면 나중에 실제 제안으로 이어질 수 있어요."]
+];
+var st={cat:null,budget:null,place:null,who:null};
+var $=function(i){return document.getElementById(i)};
+function show(id){["s-start","s-form","s-result"].forEach(function(s){$(s).classList.toggle("on",s===id)});window.scrollTo(0,0)}
+function build(id,list,key,numeric){
+  var box=$(id);box.innerHTML="";
+  list.forEach(function(it){
+    var b=document.createElement("button");b.type="button";b.className="opt";b.textContent=it[1];b.setAttribute("aria-pressed","false");
+    b.onclick=function(){
+      st[key]=it[0];
+      [].forEach.call(box.children,function(c){c.classList.remove("sel");c.setAttribute("aria-pressed","false")});
+      b.classList.add("sel");b.setAttribute("aria-pressed","true");
+      box.parentNode.classList.remove("err");updateProg();
+    };
+    box.appendChild(b);
+  });
+}
+function updateProg(){
+  var n=0,ks=["cat","budget","place","who"];ks.forEach(function(k){if(st[k]!==null)n++});
+  var bars=$("prog").children;for(var i=0;i<5;i++)bars[i].classList.toggle("on",i<n+1);
+  if(n===4)$("warn").classList.remove("on");
+}
+build("o-cat",CATS,"cat");build("o-budget",BUDGETS,"budget");build("o-place",PLACES,"place");build("o-who",WHO,"who");
+$("time").addEventListener("input",function(){$("timeVal").textContent=this.value});
+$("startBtn").onclick=function(){show("s-form")};
+$("goBtn").onclick=function(){
+  var names={cat:"관심 분야",budget:"예산",place:"장소",who:"함께하는 사람"},miss=[];
+  document.querySelectorAll(".card.err").forEach(function(c){c.classList.remove("err")});
+  Object.keys(names).forEach(function(k){if(st[k]===null){miss.push(names[k]);document.querySelector('[data-key="'+k+'"]').classList.add("err")}});
+  var w=$("warn");
+  if(miss.length){
+    w.textContent="아직 "+miss.join(", ")+" 항목을 고르지 않았어요. 선택하면 바로 추천해 드릴게요! 👆";
+    w.classList.add("on");
+    document.querySelector(".card.err").scrollIntoView({behavior:"smooth",block:"center"});
+    return;
+  }
+  w.classList.remove("on");render();show("s-result");
+};
+$("retryBtn").onclick=function(){
+  st={cat:null,budget:null,place:null,who:null};
+  document.querySelectorAll(".opt.sel").forEach(function(b){b.classList.remove("sel");b.setAttribute("aria-pressed","false")});
+  $("time").value=30;$("timeVal").textContent="30";updateProg();show("s-form");
+};
+function fmtCost(c){return c===0?"무료":"약 "+(c/10000)+"만원 이하"}
+function recommend(){
+  var time=+$("time").value;
+  var pool=DB.filter(function(a){return a[3]<=time&&a[4]<=st.budget});
+  var scored=pool.map(function(a,i){
+    var s=0;
+    if(a[0]===st.cat)s+=10;
+    if(a[5].indexOf(st.place)>=0)s+=4;
+    if(a[6].indexOf(st.who)>=0)s+=3;
+    s+=Math.min(a[3]/time,1)*2; // 시간을 알차게 쓰는 행동 가산
+    s+=Math.random()*1.5; // 같은 조건이라도 매번 조금씩 다른 조합
+    return {a:a,s:s};
+  }).sort(function(x,y){return y.s-x.s});
+  var pick=[],sdgs={};
+  // 서로 다른 SDG를 우선
+  scored.forEach(function(o){if(pick.length<3&&!sdgs[o.a[1]]){pick.push(o);sdgs[o.a[1]]=1}});
+  scored.forEach(function(o){if(pick.length<3&&pick.indexOf(o)<0)pick.push(o)});
+  return pick.map(function(o){return o.a});
+}
+function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+function render(){
+  var picks=recommend(),time=+$("time").value;
+  var catName=CATS.filter(function(c){return c[0]===st.cat})[0][1];
+  var bud=BUDGETS.filter(function(b){return b[0]===st.budget})[0][1];
+  $("intro").innerHTML="📣 "+esc(PL[st.place])+"에서 "+esc(WL[st.who])+" 하는 "+time+"분, 예산 "+esc(bud)+" 조건이네요! <b>"+esc(catName.replace(/^\S+\s/,""))+"</b> 분야로 오늘 바로 할 수 있는 행동을 골라 봤어요. 하나만 해도 충분히 멋져요!";
+  var html="";
+  picks.forEach(function(a,i){
+    var reasons=[a[7]];
+    if(a[0]!==st.cat)reasons.push("고르신 분야에서 조건에 맞는 행동이 부족해서 비슷한 가치를 가진 행동을 함께 골랐어요.");
+    if(a[5].indexOf(st.place)>=0)reasons.push(PL[st.place]+"에서 바로 시작할 수 있어요.");
+    if(a[6].indexOf(st.who)>=0)reasons.push(WL[st.who]+" 하기에도 잘 어울려요.");
+    html+='<div class="card act"><span class="no">'+(i+1)+'</span><span class="badge">SDG '+a[1]+' · '+esc(SDG[a[1]])+'</span><h3>'+esc(a[2])+'</h3><div class="meta"><span>⏱ 약 '+a[3]+'분</span><span>💰 '+fmtCost(a[4])+'</span></div><p>💡 <b>추천 이유</b> · '+esc(reasons.join(" "))+'</p></div>';
+  });
+  $("acts").innerHTML=html;
+  var notes=picks.slice(0,2).map(function(a){return "<li>"+esc(a[8])+"</li>"});
+  $("notes").innerHTML=notes.join("");
+}
+})();
+</script>
+</body>
+</html>
